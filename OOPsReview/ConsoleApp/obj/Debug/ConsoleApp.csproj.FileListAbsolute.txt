@@ -1,0 +1,2 @@
+C:\Users\ashle\Desktop\FALL TERM 2020\CPSC1517 - Intro to App Dev\2020-Sept-CPSC1517-A02\OOPsReview\ConsoleApp\obj\Debug\ConsoleApp.csprojAssemblyReference.cache
+C:\Users\ashle\Desktop\FALL TERM 2020\CPSC1517 - Intro to App Dev\2020-Sept-CPSC1517-A02\OOPsReview\ConsoleApp\obj\Debug\ConsoleApp.csproj.CoreCompileInputs.cache
