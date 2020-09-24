@@ -136,7 +136,59 @@ namespace ConsoleApp
         //IF you code a constructor, you MUST code any and all constructor(s) needed by your class.
 
         //There are two common types of constructors
+        //DEFAULT and GREEDY
+
+        //Default   
+        //This takes NO parameters, and usually similates the 'system' constructor
+        //You can if you wish assign values to your class data members/properties that are NOT the system default
+        //Callled on your behave when an instance of the class is requested by the outside user.
+        //You can NOT call a constructor directly like a method.
+
+        public Window()
+        {
+            //technically numerics are set to zero when they are declared
+            //Logically in this class, the numeric fields should NOT be zero
+            //Therefore we will set the numeric fields to a literal not equal to zero.
+
+            //One could assign value directly to private data member within the class
+            //A preffered method is to usee the properties instead of the private data members
+            //Why? Is that the properties MAY have validation to ensure acceptable values exists for the data
+            //Also, auto implemtented propertie have no direct pivate data members
+
+            Height = 0.9m; //the assumed window height is 0.9 meters
+            Width = 1.2m;
+            NumberOfPanes = 1;
+        }
+
+
+        //Greedy
+        //takes in a value for each data member/property in the class
+        //each data member/property is assigned the appropriate incoming parametr value
+
+
+        public Window(decimal width, decimal height, int? numberofpanes, string manufacturer)
+
+        {
+            Width = width;
+            Height = height;
+            NumberOfPanes = numberofpanes;
+            Manufacturer = manufacturer;
+        }
 
         //Behaviours
+        //are also known as methods
+        //Optional!
+
+        //Area of a Window
+        public decimal WindowArea()
+        {
+            return Height * Width;
+        }
+
+        //Perimeter of a Window
+        public decimal WindowPerimeter()
+        {
+            return 2 * (Height * Width);
+        }
     } 
 }
