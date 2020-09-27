@@ -76,7 +76,8 @@ namespace ConsoleApp
                 //Alternative Coding:
                 //Syntax receiving field = condition(s) ? true value : false;
                 //_Manufacturer = string.IsNullOrEmpty(value) ? null : value;
-
+            }
+        }
 
         public decimal Height
         {
