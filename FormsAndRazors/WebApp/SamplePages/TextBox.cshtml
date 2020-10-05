@@ -3,7 +3,10 @@
     //This requires the developer to properly create logic so that the proper criterial paths are produced
     Layout = "~/_Layout.cshtml";
     Page.Title = "TextBox Sample";
+    //Variables declared in the initial coding block are global to the etire web page
     string entereddata = "";
+    string name = "";
+    string email = "";
 }
 
 @if (IsPost)
@@ -19,8 +22,8 @@
     //ALL data come from the form will be a string
     
     //EXTRACT DATA
-    var name = Request.Form["cscodingname"];
-    var email = Request.Form["Email"];
+     name = Request.Form["cscodingname"];
+     email = Request.Form["Email"];
     //NOTE: the name PressMe has been given to BOTH buttons.
     //The data return from the control will be the data assigned to the value parameter.
     //Thus, the button will have a value of either name or email, NOT BOTH.
@@ -49,11 +52,13 @@ else
         <table>
             <tr>
                 <td>Enter your name:</td>
-                <td><input type="text" id="javascriptname" name="cscodingname" /></td>
+                <td><input type="text" id="javascriptname" name="cscodingname" 
+                           value="@name"/></td>
             </tr>
             <tr>
                 <td>Enter your email:</td>
-                <td><input type="text" id="Email" name="Email" /></td>
+                <td><input type="text" id="Email" name="Email" 
+                           value="@email"/></td>
             </tr>
             <tr>
                 <td colspan="2">

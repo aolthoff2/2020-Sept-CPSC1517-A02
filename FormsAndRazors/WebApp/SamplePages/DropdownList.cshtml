@@ -1,0 +1,61 @@
+﻿@{
+    Layout = "~/_Layout.cshtml";
+    Page.Title = "DropDown Sample";
+}
+
+@section banner {<h3>Form Using Dropdown List</h3>}
+
+@if(IsPost)
+{
+    var choice = Request.Form["CodingSamples"];
+    switch(choice.ToUpper())
+    {
+        case "TEXT":
+            {
+                //To go to another page without using an anchor tag, use Response.Redirect("xxxxx.cshtml")
+                //Navigate from the top of the website
+                Response.Redirect("~/SamplePages/TextBox.cshtml");
+                break;
+            }
+        case "RADIO":
+            {
+                //The server will attach the current folder name in front of the file name.
+                Response.Redirect("RadioButtons.cshtml");
+                break;
+            }
+        case "CHECK":
+            {
+                Response.Redirect("~/SamplePages/CheckBoxes.cshtml");
+                break;
+            }
+        default:
+            {
+                <p><span style = "color:firebrick"> Make a selection from the list of choices.</span></p> 
+                break;
+            }
+
+    }
+}
+else
+{
+
+}
+
+<form id="theForm" method="post">
+    <div class="offset-1">
+        <label for="CodingSamples">Select the sample to view:</label><br />
+        @*A single select is created using the option tag.
+            The tag has a parameter called value.
+            The display text is coded between the opening and closing option tag
+            
+            DropDown Lists may contain a prompt line as the first row in the control.*@
+    <select id="CodingSamples" name="CodingSamples">
+        <option value="">Select...</option>
+        <option value="Text">Textboxes</option>
+        <option value="Radio">RadioButtons</option>
+        <option value="Check">CheckBoxes</option>
+    </select><br /><br />
+        <button type="submit" name="theButton" id="theButton" value="submit"
+                class="btn btn-info">Submit</button>
+    </div>
+</form>
