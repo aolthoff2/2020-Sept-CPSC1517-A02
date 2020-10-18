@@ -1,0 +1,175 @@
+﻿@{
+    Layout = "~/_Layout.cshtml";
+    Page.Title = "Simple Query";
+    string regionidarg = "";
+    string regionid = "";
+    string description = "";
+}
+
+@section banner{
+    <div><h3>Simple Query</h3></div>
+    }
+
+@if(IsPost)
+{
+    //Access all input data if NOT already done earlier on the page.
+    var thebutton = Request.Form["theButton"];
+    regionidarg = Request.Form["RegionIDArg"];
+
+    //IF you have multiple buttons, decide which button was pressed.
+    if(thebutton.Equals("Clear"))
+    {
+        //The clear button processing
+        regionidarg = "";
+        regionid = "";
+        description = "";
+    }
+    else
+    {
+        //The submit button processing
+        if(regionidarg.IsEmpty())
+        {
+            <p><span style="color:firebrick">You did not supply a search argument.</span></p>
+            regionidarg = "";
+            regionid = "";
+            description = "";
+        }
+        else
+        {
+            //you could do further validation to ensure you have a viable value.
+            //Assume at this point you have a valid argument value.
+
+            //Access the database to do the query.
+
+            //STEP 1: Connect to your database.
+            //Use the connection string name in our web connection string
+            var db = Database.Open("NWDB");
+
+            //STEP 2: Create the database SQL query command.
+            //Placeholders will be used or input data values.
+            //Placeholders start at 0 and increment by 1
+            //Placeholders must be linearly be used in your command
+            //Placeholders syntax @0 @1 @2...
+            var querycommand = @"SELECT RegionID, RegionDescription
+                                 FROM Region
+                                 WHERE RegionID = @0";
+
+            //STEP 3: Execute the query.
+            //There are 3 ways to execute a query DEPENDING on the EXPECTED number of returned records/values
+            //A) a single record returned uses QuerySingle()
+            //B) multiple records (0, 1 or more) uses Query()
+            //C) a single value returned (you will NOT have multiple attributes returned) uses QueryValue()
+
+            //This example is a query by primary key
+            //Therefor you can only expect ONE record to be recorded.
+            var results = db.QuerySingle(querycommand, regionidarg);
+
+
+            //Test your query results.
+            if (results == null)
+            {
+                //If NO record was returned your results for QuerySingle() will be null.
+                regionid = "";
+                description = "";
+                <p>No record found for Region ID: @regionidarg</p>
+            }
+            else
+            {
+                <p>Found</p>
+                //There are two ways to retrieve a value from a queried record.
+                //A) access using an index.
+
+                regionid = results[0].ToString(); //pkey is an int, convert to a string
+
+                //B) access using the column title string
+                description = results.RegionDescription;
+            }
+
+        }
+    }
+}
+else
+{
+    regionidarg = "";
+    regionid = "";
+    description = "";
+}
+
+<form id="theForm" method="post">
+    <div class="row">
+        <div class="col-3">
+            @*The left column is to prompt for my input argument value that will be used to query the database.*@
+            <label for="RegionIDArg">Enter a Region ID:</label>&nbsp;&nbsp;
+            <input type="number" name="RegionIDArg" id="RegionIDArg"
+                   value="@regionidarg" placeholder="enter region id" /><br /><br />
+            <button type="submit" name="theButton" id="theButton" value="submit"
+                    class="btn btn-primary">
+                Submit
+            </button>
+            <button type="submit" name="theButton" id="theButton" value="clear"
+                    class="btn btn-light">
+                Clear
+            </button>
+        </div>
+        <div class="col-8">
+            @*The right column is to display the output of the query to the database.*@
+            <label for="Region">Region ID:</label>&nbsp;&nbsp;
+            <input type="text" name="Region" id="Region"
+                   value="@regionid" /><br /><br />
+            <label for="Description">Region Description:</label>&nbsp;&nbsp;
+            <input type="text" name="Description" id="Description"
+                   value="@description" /><br /><br />
+        </div>
+    </div>
+</form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

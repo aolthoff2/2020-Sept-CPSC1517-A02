@@ -51,3 +51,7 @@ C:\Users\ashle\Desktop\FALL TERM 2020\CPSC1517 - Intro to App Dev\2020-Sept-CPSC
 C:\Users\ashle\Desktop\FALL TERM 2020\CPSC1517 - Intro to App Dev\2020-Sept-CPSC1517-A02\FormsAndRazors\WebApp\bin\roslyn\System.Memory.dll
 C:\Users\ashle\Desktop\FALL TERM 2020\CPSC1517 - Intro to App Dev\2020-Sept-CPSC1517-A02\FormsAndRazors\WebApp\bin\roslyn\System.Numerics.Vectors.dll
 C:\Users\ashle\Desktop\FALL TERM 2020\CPSC1517 - Intro to App Dev\2020-Sept-CPSC1517-A02\FormsAndRazors\WebApp\bin\roslyn\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\ashle\Desktop\FALL TERM 2020\CPSC1517 - Intro to App Dev\2020-Sept-CPSC1517-A02\FormsAndRazors\WebApp\bin\WebMatrix.Data.dll
+C:\Users\ashle\Desktop\FALL TERM 2020\CPSC1517 - Intro to App Dev\2020-Sept-CPSC1517-A02\FormsAndRazors\WebApp\bin\WebMatrix.WebData.dll
+C:\Users\ashle\Desktop\FALL TERM 2020\CPSC1517 - Intro to App Dev\2020-Sept-CPSC1517-A02\FormsAndRazors\WebApp\bin\WebMatrix.Data.xml
+C:\Users\ashle\Desktop\FALL TERM 2020\CPSC1517 - Intro to App Dev\2020-Sept-CPSC1517-A02\FormsAndRazors\WebApp\bin\WebMatrix.WebData.xml
